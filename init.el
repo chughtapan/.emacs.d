@@ -20,8 +20,6 @@
 (load "cuda-mode")
 (global-set-key (kbd "C-c f") 'flycheck-mode)
 
-(require 'sr-speedbar)
-(require 'counsel-etags)
 (require 'setup-multi-term)
 (require 'setup-general)
 (require 'setup-ivy-counsel)
@@ -30,14 +28,12 @@
 ;;    (require 'setup-ivy-counsel)
 ;;  (require 'setup-helm)
 ;;  (require 'setup-helm-gtags))
-(require 'setup-ggtags)
+;; (require 'setup-ggtags)
 (require 'setup-cedet)
 (require 'setup-editing)
 (require 'setup-cscope)
 
 (require 'tomorrow-night-paradise-theme)
-
-(eyebrowse-mode t)
 
 (global-set-key (kbd "C-x g") 'magit-status)
    (global-set-key (kbd "C-?") 'help-command)

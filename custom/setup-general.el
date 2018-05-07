@@ -53,6 +53,20 @@
 
   ; automatically indent when press RET
 
+(use-package eyebrowse
+  :config
+  (eyebrowse-mode 't))
+
+(use-package sr-speedbar
+  :bind
+  (("C-c C-d" . sr-speedbar-toggle)))
+
+(use-package counsel-etags
+  :bind
+  (("C-c g f" . counsel-etags-find-tag-at-point)))
+
+(use-package rainbow-delimiters)
+
 ;; activate whitespace-mode to view all whitespace characters
 (global-set-key (kbd "C-c w") 'whitespace-mode)
 (windmove-default-keybindings)
