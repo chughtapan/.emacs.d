@@ -264,4 +264,8 @@ Position the cursor at it's beginning, according to the current mode."
 (global-set-key (kbd "M-o") 'prelude-smart-open-line)
 (global-set-key (kbd "M-o") 'open-line)
 
+(global-set-key (kbd "M-?") 'mark-paragraph)
+(global-set-key (kbd "C-h") 'delete-backward-char)
+(global-set-key (kbd "M-h") 'backward-kill-word)
+
 (provide 'setup-editing)
