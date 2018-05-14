@@ -29,4 +29,7 @@ with `sticky-window-keep-window-visible'."
 (global-set-key (kbd "C-x 9") 'sticky-window-keep-window-visible)
 (global-set-key (kbd "C-x 0") 'sticky-window-delete-window)
 (global-set-key (kbd "C-x 1") 'sticky-window-delete-other-windows)
+
+(use-package ace-window)
+(global-set-key (kbd "M-o") 'ace-window)
 (provide 'setup-window)
