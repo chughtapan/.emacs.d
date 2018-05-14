@@ -21,7 +21,7 @@
 ;; “python”: What Python developers use for extension modules
 ;; “java”: The default style for java-mode (see below)
 ;; “user”: When you want to define your own style
-(setq c-default-style) "stroustrup" ;; set style to "linux"
+(setq c-default-style "stroustrup") ;; set style to "linux"
 
 (require 'rainbow-delimiters)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode) ;
