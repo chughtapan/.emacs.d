@@ -71,4 +71,8 @@
 (global-set-key (kbd "C-c w") 'whitespace-mode)
 (windmove-default-keybindings)
 
+;; Dired settings
+;; Add more things here
+(put 'dired-find-alternate-file 'disabled nil)
+
 (provide 'setup-general)
