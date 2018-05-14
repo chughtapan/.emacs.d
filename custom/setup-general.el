@@ -61,6 +61,10 @@
   :bind
   (("C-c C-d" . sr-speedbar-toggle)))
 
+(use-package dired-sidebar
+  :bind
+  (( "C-x C-n" . dired-sidebar-toggle-sidebar)))
+
 (use-package counsel-etags
   :bind
   (("C-c g f" . counsel-etags-find-tag-at-point)))
