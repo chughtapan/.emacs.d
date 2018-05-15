@@ -22,6 +22,7 @@
 
 (require 'setup-general)
 (require 'setup-ivy-counsel)
+(require 'setup-org-mode)
 (require 'setup-c)
 (require 'setup-cedet)
 (require 'setup-editing)
