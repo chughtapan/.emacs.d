@@ -79,4 +79,10 @@
 ;; Add more things here
 (put 'dired-find-alternate-file 'disabled nil)
 
+(if (string-equal system-type "darwin")
+    (setq mac-option-key-is-meta nil
+          mac-command-key-is-meta t
+          mac-command-modifier 'meta
+          mac-option-modifier 'none))
+
 (provide 'setup-general)
