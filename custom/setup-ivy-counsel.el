@@ -10,7 +10,6 @@
   :bind
   (("M-x" . counsel-M-x)
    ("M-y" . counsel-yank-pop)
-   ("C-c r" . counsel-recentf)
    ("C-x C-f" . counsel-find-file)
    ("<f1> f" . counsel-describe-function)
    ("<f1> v" . counsel-describe-variable)
