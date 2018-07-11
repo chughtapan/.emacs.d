@@ -8,6 +8,8 @@
             (local-set-key "\M-p" 'outline-backward-same-level)
             (local-set-key "\C-y" 'yank)))
 
+
 (global-set-key (kbd "C-c l") 'org-store-link)
+(use-package ox-reveal)
 
 (provide 'setup-org-mode)
