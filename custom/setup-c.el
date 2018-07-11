@@ -31,4 +31,11 @@
   (define-key c-mode-map  [(tab)] 'company-complete)
   (define-key c++-mode-map  [(tab)] 'company-complete))
 
+(use-package clang-format
+  :init
+  (global-set-key (kbd "C-c i") 'clang-format-region))
+
+(setq clang-format-binary "clang-format-5.0")
+(setq clang-format-style-option "google")
+
 (provide 'setup-c)
