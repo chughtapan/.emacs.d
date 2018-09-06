@@ -23,6 +23,9 @@
 ;; “user”: When you want to define your own style
 (setq c-default-style "stroustrup") ;; set style to "linux"
 
+(add-hook 'c-mode-common-hook 'google-set-c-style)
+(add-hook 'c-mode-common-hook 'google-make-newline-indent)
+
 (require 'rainbow-delimiters)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode) ;
 
@@ -33,7 +36,8 @@
 
 (use-package clang-format
   :init
-  (global-set-key (kbd "C-c i") 'clang-format-region))
+  (global-set-key (kbd "C-c i") 'clang-format-region)
+  (global-set-key (kbd "<caps> i") 'clang-format-buffer))
 
 (setq clang-format-binary "clang-format-5.0")
 (setq clang-format-style-option "google")

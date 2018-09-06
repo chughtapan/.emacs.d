@@ -268,4 +268,8 @@ Position the cursor at it's beginning, according to the current mode."
 (global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "M-h") 'backward-kill-word)
 
+(use-package avy
+  :bind
+  (("M-c" . avy-goto-char-2)
+   ("M-l" . avy-goto-line)))
 (provide 'setup-editing)
