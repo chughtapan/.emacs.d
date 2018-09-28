@@ -115,14 +115,14 @@
 
    ;; Fill Column Indicator mode
    `(fci-rule-color ,gray-2)
-   `(fci-rule-character-color ,gray-2)
+   `(fci-rule-character-color ,gray-2)))
 
-   `(ansi-color-names-vector
-     ;; black, red, green, yellow, blue, magenta, cyan, white
-     [,background ,red ,green ,yellow ,blue ,purple ,blue ,foreground])
-   `(ansi-term-color-vector
-     ;; black, red, green, yellow, blue, magenta, cyan, white
-     [unspecified ,background ,red ,green ,yellow ,blue ,purple ,blue ,foreground])))
+   ;; `(ansi-color-names-vector
+   ;;   ;; black, red, green, yellow, blue, magenta, cyan, white
+   ;;   [,background ,red ,green ,yellow ,blue ,purple ,blue ,foreground])
+   ;; `(ansi-term-color-vector
+   ;;   ;; black, red, green, yellow, blue, magenta, cyan, white
+   ;;   [term ,background ,red ,green ,yellow ,blue ,purple ,blue ,foreground])))
 
 (provide-theme 'tomorrow-night-paradise)
 

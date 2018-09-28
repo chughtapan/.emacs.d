@@ -8,8 +8,7 @@
 
 (use-package counsel
   :bind
-  (("M-x" . counsel-M-x)
-   ("M-y" . counsel-yank-pop)
+  (("M-y" . counsel-yank-pop)
    ("C-x C-f" . counsel-find-file)
    ("<f1> f" . counsel-describe-function)
    ("<f1> v" . counsel-describe-variable)
@@ -17,6 +16,14 @@
    ("C-h f" . counsel-describe-function)
    ("C-h v" . counsel-describe-variable)
    ("C-h l" . counsel-load-library)))
+
+(use-package amx
+  :bind
+  (("M-x" . amx)))
+
+(use-package ivy-prescient
+  :init
+  (ivy-prescient-mode 1))
 
 (use-package counsel-projectile
   :init

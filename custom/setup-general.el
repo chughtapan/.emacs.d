@@ -40,6 +40,14 @@
 ;; (define-key c-mode-map  [(control tab)] 'company-complete)
 ;; (define-key c++-mode-map  [(control tab)] 'company-complete)
 
+(use-package prescient
+  :init
+  (prescient-persist-mode 1))
+
+(use-package company-prescient
+  :init
+  (company-prescient-mode 1))
+
 ;; Package: projejctile
 (use-package projectile
   :init
@@ -84,5 +92,10 @@
           mac-command-key-is-meta t
           mac-command-modifier 'meta
           mac-option-modifier 'none))
+(use-package emojify)
+(use-package company-emoji)
+
+(add-hook 'after-init-hook #'global-emojify-mode)
+(add-hook 'after-init-hook #'company-emoji-init)
 
 (provide 'setup-general)
