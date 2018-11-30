@@ -92,6 +92,13 @@
           mac-command-key-is-meta t
           mac-command-modifier 'meta
           mac-option-modifier 'none))
+
+(if (string-equal system-type "darwin")
+    (use-package exec-path-from-shell
+      :init
+      (exec-path-from-shell-initialize)))
+
+
 (use-package emojify)
 (use-package company-emoji)
 
