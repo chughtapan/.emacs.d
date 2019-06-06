@@ -98,11 +98,4 @@
       :init
       (exec-path-from-shell-initialize)))
 
-
-(use-package emojify)
-(use-package company-emoji)
-
-(add-hook 'after-init-hook #'global-emojify-mode)
-(add-hook 'after-init-hook #'company-emoji-init)
-
 (provide 'setup-general)
