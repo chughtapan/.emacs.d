@@ -40,6 +40,30 @@
   (global-set-key (kbd "<caps> i") 'clang-format-buffer))
 
 (setq clang-format-binary "clang-format-5.0")
+(setq clang-format-binary "/usr/bin/clang-format-5.0")
 (setq clang-format-style-option "google")
+
+(defun clang-format-buffer-with-style (style)
+  "Run clang-format-buffer with the style argument."
+  (let ((orig-style clang-format-style-option))
+    (progn
+      (setq clang-format-style-option style)
+      (clang-format-buffer)
+      (setq clang-format-style-option orig-style))))
+
+(defun clang-format-buffer-with-project-style ()
+  "Use project .clang-format if available, else fallback"
+  (interactive)
+  (if (f-exists? (expand-file-name ".clang-format" (projectile-project-root)))
+      (clang-format-buffer-with-style "file")
+    (clang-format-buffer)))
+
+(global-set-key (kbd "C-c i") 'clang-format-buffer-with-project-style)
+
+(defun clang-format-buffer-with-project-style-on-save ()
+  "Add auto-save hook for clang-format-buffer-with-project-style"
+  (add-hook 'before-save-hook 'clang-format-buffer-with-project-style nil t))
+
+(add-hook 'c-mode-common-hook 'clang-format-buffer-with-project-style-on-save)
 
 (provide 'setup-c)
