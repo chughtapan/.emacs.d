@@ -15,6 +15,23 @@
  'org-babel-load-languages
  '((python . t)))
 
+(setq org-todo-keywords
+      '((sequence "TODO(t)" "NEXT(n)" "WAITING(w)" "SOMEDAY(s)" "MAYBE(m)" "|" "DONE(d!)" "INACTIVE(i@)")))
+
 (use-package ox-reveal)
+
+(use-package org-bullets
+  :config
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+
+(use-package org-gcal)
+(add-hook 'org-agenda-mode-hook (lambda() (org-gcal-fetch)
+                                  (org-gcal-sync)))
+(add-hook 'org-capture-after-finalize-hook (lambda () (org-gcal-fetch)
+                                             (org-gcal-sync)))
+
+(global-set-key (kbd "C-c c") 'org-capture)
+(global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c r") 'org-refile)
 
 (provide 'setup-org-mode)

@@ -1,5 +1,3 @@
-(load "multi-term")
-(load "multi-term-ext")
 ;; Setup default shell
 
 (use-package eterm-256color
@@ -7,7 +5,7 @@
 
 
 ;; Setup default shell
-(setq multi-term-program "/usr/bin/fish")
+(use-package multi-term)
 
 (defun term-mode-toggle ()
   (interactive)
@@ -35,6 +33,5 @@
 (setq ansi-term-color-vector [term term-color-black term-color-red term-color-green term-color-yellow term-color-blue term-color-magenta term-color-cyan term-color-white])
 (setq term-default-bg-color nil)
 (global-set-key (kbd "C-c t") 'multi-term)
-
 
 (provide 'setup-multi-term)

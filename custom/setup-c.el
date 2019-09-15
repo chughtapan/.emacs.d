@@ -8,6 +8,8 @@
   :init
   (global-set-key (kbd "C-c +") 'hs-toggle-hiding))
 
+(use-package cuda-mode)
+
 (add-hook 'c-mode-common-hook 'hs-minor-mode)
 
 ;; Available C style:

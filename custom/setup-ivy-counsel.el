@@ -29,4 +29,8 @@
   :init
   (counsel-projectile-mode))
 
+(use-package all-the-icons-ivy
+  :init
+  (all-the-icons-ivy-setup))
+
 (provide 'setup-ivy-counsel)

@@ -1,5 +1,6 @@
 (menu-bar-mode -1)
 (tool-bar-mode -1)
+(toggle-scroll-bar -1)
 
 (setq gc-cons-threshold 100000000)
 (setq inhibit-startup-message t)
@@ -52,7 +53,8 @@
 (use-package projectile
   :init
   (projectile-global-mode)
-  (setq projectile-enable-caching t))
+  (setq projectile-enable-caching t)
+  (setq projectile-file-exists-remote-cache-expire nil))
 
 ;; Package zygospore
 (use-package zygospore
@@ -69,10 +71,6 @@
   :bind
   (("C-c C-d" . sr-speedbar-toggle)))
 
-(use-package dired-sidebar
-  :bind
-  (( "C-x C-n" . dired-sidebar-toggle-sidebar)))
-
 (use-package counsel-etags
   :bind
   (("C-c g f" . counsel-etags-find-tag-at-point)))
@@ -86,6 +84,28 @@
 ;; Dired settings
 ;; Add more things here
 (put 'dired-find-alternate-file 'disabled nil)
+(setq dired-dwim-target t)
+
+(use-package treemacs
+  :bind (("C-x C-n" . treemacs)))
+(use-package treemacs-projectile)
+(use-package treemacs-icons-dired)
+
+(use-package solaire-mode
+  :init
+  (solaire-global-mode))
+
+(use-package all-the-icons)
+
+(use-package doom-themes
+  :init
+  (load-theme 'doom-tomorrow-night t)
+  (doom-themes-treemacs-config)
+  (doom-themes-org-config))
+
+(use-package doom-modeline
+  :hook
+  (after-init . doom-modeline-mode))
 
 (if (string-equal system-type "darwin")
     (setq mac-option-key-is-meta nil

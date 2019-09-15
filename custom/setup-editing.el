@@ -272,4 +272,5 @@ Position the cursor at it's beginning, according to the current mode."
   :bind
   (("M-c" . avy-goto-char-2)
    ("M-l" . avy-goto-line)))
+
 (provide 'setup-editing)
