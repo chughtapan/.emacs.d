@@ -43,13 +43,11 @@
   :init
   (volatile-highlights-mode t))
 
-
-
 ;; Package: undo-tree
 ;; GROUP: Editing -> Undo -> Undo Tree
-;;(use-package undo-tree
-;;  :init
-;;  (global-undo-tree-mode 1))
+(use-package undo-tree
+ :init
+ (global-undo-tree-mode 1))
 
 ;; Package: yasnippet
 ;; GROUP: Editing -> Yasnippet
@@ -272,5 +270,7 @@ Position the cursor at it's beginning, according to the current mode."
   :bind
   (("M-c" . avy-goto-char-2)
    ("M-l" . avy-goto-line)))
+
+(put 'narrow-to-region 'disabled nil)
 
 (provide 'setup-editing)

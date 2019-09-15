@@ -47,7 +47,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (org-gcal org-bullets org-ascii-bullets multi-term cuda-mode zygospore yasnippet xcscope ws-butler volatile-highlights use-package treemacs-projectile treemacs-icons-dired sr-speedbar solaire-mode rainbow-delimiters ox-reveal magit ivy-prescient irony iedit flx-isearch fish-mode eyebrowse exec-path-from-shell eterm-256color dtrt-indent doom-themes doom-modeline dired-sidebar counsel-projectile counsel-etags company-prescient company-c-headers company-anaconda comment-dwim-2 clean-aindent-mode clang-format anzu amx all-the-icons-ivy))))
+    (w3m undo-tree treemacs-magit org-gcal org-bullets org-ascii-bullets multi-term cuda-mode zygospore yasnippet xcscope ws-butler volatile-highlights use-package treemacs-projectile treemacs-icons-dired sr-speedbar solaire-mode rainbow-delimiters ox-reveal magit ivy-prescient irony iedit flx-isearch fish-mode eyebrowse exec-path-from-shell eterm-256color dtrt-indent doom-themes doom-modeline dired-sidebar counsel-projectile counsel-etags company-prescient company-c-headers company-anaconda comment-dwim-2 clean-aindent-mode clang-format anzu amx all-the-icons-ivy))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

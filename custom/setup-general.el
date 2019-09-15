@@ -107,6 +107,8 @@
   :hook
   (after-init . doom-modeline-mode))
 
+(use-package w3m)
+
 (if (string-equal system-type "darwin")
     (setq mac-option-key-is-meta nil
           mac-command-key-is-meta t

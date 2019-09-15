@@ -41,8 +41,6 @@
   (global-set-key (kbd "C-c i") 'clang-format-region)
   (global-set-key (kbd "<caps> i") 'clang-format-buffer))
 
-(setq clang-format-binary "clang-format-5.0")
-(setq clang-format-binary "/usr/bin/clang-format-5.0")
 (setq clang-format-style-option "google")
 
 (defun clang-format-buffer-with-style (style)
