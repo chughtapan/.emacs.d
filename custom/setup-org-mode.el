@@ -56,4 +56,7 @@
   :init
   (flycheck-vale-setup))
 
+(load-file  "~/.emacs.d/lisp/ox-ipynb/ox-ipynb.el")
+
+
 (provide 'setup-org-mode)
