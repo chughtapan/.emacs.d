@@ -18,6 +18,8 @@
 ;; set appearance of a tab that is represented by 4 spaces
 (setq-default tab-width 4)
 
+(setq tramp-auto-save-directory "~/tmp")
+
 ;; Compilation
 (global-set-key (kbd "<f5>") (lambda ()
                                (interactive)
@@ -37,9 +39,17 @@
 (use-package company
   :init
   (global-company-mode 1)
-  (delete 'company-semantic company-backends))
+  (delete 'company-semantic company-backends)
+  (setq company-idle-delay 0)
+  (setq company-show-numbers t))
+
 ;; (define-key c-mode-map  [(control tab)] 'company-complete)
 ;; (define-key c++-mode-map  [(control tab)] 'company-complete)
+
+;; Maybe use company-tabnine sometime
+;; (use-package company-tabnine
+;;   :init
+;;   (add-to-list 'company-backends #'company-tabnine))
 
 (use-package prescient
   :init
@@ -54,7 +64,12 @@
   :init
   (projectile-global-mode)
   (setq projectile-enable-caching t)
-  (setq projectile-file-exists-remote-cache-expire nil))
+  (setq projectile-file-exists-remote-cache-expire nil)
+  (setq projectile-mode-line
+        '(:eval
+          (if (file-remote-p default-directory)
+              " Projectile[*remote*]"
+            (format " Projectile[%s]" (projectile-project-name))))))
 
 ;; Package zygospore
 (use-package zygospore
@@ -67,10 +82,13 @@
   :config
   (eyebrowse-mode 't))
 
-(use-package sr-speedbar
-  :bind
-  (("C-c C-d" . sr-speedbar-toggle)))
+;; (use-package sr-speedbar
+;;   :bind
+;;   (("C-c C-d" . sr-speedbar-toggle)))
 
+(use-package dired-sidebar
+  :bind
+  (("C-c C-d" . dired-sidebar-toggle-sidebar)))
 (use-package counsel-etags
   :bind
   (("C-c g f" . counsel-etags-find-tag-at-point)))
@@ -119,5 +137,7 @@
     (use-package exec-path-from-shell
       :init
       (exec-path-from-shell-initialize)))
+
+(setq backup-directory-alist '(("" . "~/.emacs.d/backup")))
 
 (provide 'setup-general)

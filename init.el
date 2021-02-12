@@ -29,6 +29,7 @@
 (require 'setup-window)
 (require 'setup-irony)
 (require 'setup-rtags)
+(require 'setup-lsp)
 (require 'setup-magit)
 (require 'setup-multi-term)
 (require 'local-settings)
@@ -45,12 +46,15 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(conda-anaconda-home (expand-file-name "~/miniconda3/"))
+ '(global-linum-mode t)
+ '(org-agenda-files
+   '("/Users/tapanc/Dropbox/notebooks/agenda/calendar.org" "/Users/tapanc/Dropbox/notebooks/agenda/meetings.org" "/Users/tapanc/Dropbox/notebooks/agenda/todo.org" "/Users/tapanc/Dropbox/notebooks/agenda/journal/20210101"))
  '(package-selected-packages
-   (quote
-    (w3m undo-tree treemacs-magit org-gcal org-bullets org-ascii-bullets multi-term cuda-mode zygospore yasnippet xcscope ws-butler volatile-highlights use-package treemacs-projectile treemacs-icons-dired sr-speedbar solaire-mode rainbow-delimiters ox-reveal magit ivy-prescient irony iedit flx-isearch fish-mode eyebrowse exec-path-from-shell eterm-256color dtrt-indent doom-themes doom-modeline dired-sidebar counsel-projectile counsel-etags company-prescient company-c-headers company-anaconda comment-dwim-2 clean-aindent-mode clang-format anzu amx all-the-icons-ivy))))
+   '(jupyter xbm-life git-gutter+ conda iedit calfw lsp-python-ms treemacs-projectile treemacs-persp treemacs-icons-dired treemacs-magit lsp-treemacs treemacs xml-rpc dashboard-project-status dashboard org-dashboard org-ref bm gnuplot-mode auctex\.el auctex-latexmk company-auctex writeroom-mode writegood-mode sudo-ext protobuf-mode virtualenv cython-mode ivy-posframe flycheck-vale multiple-cursors @ org-journal org-super-agenda projectile markdown-mode+ csv-mode google-c-style ivy-xref company-lsp ccls company-tabnine tabnine exwm frecentf auctex itail pyenv-mode pyvenv org-kanban flycheck-rtags company-rtags ivy-rtags rtags vterm sudo-edit org-noter interleave w3m undo-tree org-bullets org-ascii-bullets multi-term cuda-mode zygospore yasnippet xcscope ws-butler volatile-highlights use-package sr-speedbar solaire-mode rainbow-delimiters ox-reveal magit ivy-prescient irony flx-isearch fish-mode eyebrowse exec-path-from-shell eterm-256color dtrt-indent doom-themes doom-modeline dired-sidebar counsel-projectile counsel-etags company-prescient company-c-headers company-anaconda comment-dwim-2 clean-aindent-mode clang-format anzu amx all-the-icons-ivy)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(linum ((t (:inherit default :foreground "snow" :strike-through nil :underline nil :slant normal :weight normal)))))

@@ -13,10 +13,11 @@
 (global-set-key (kbd "C-c l") 'org-store-link)
 (org-babel-do-load-languages
  'org-babel-load-languages
- '((python . t)))
+ '((python . t)
+   (jupyter . t)))
 
 (setq org-todo-keywords
-      '((sequence "TODO(t)" "NEXT(n)" "WAITING(w)" "SOMEDAY(s)" "MAYBE(m)" "|" "DONE(d!)" "INACTIVE(i@)")))
+      '((sequence "TODO(t)" "NEXT(n)" "DEFER(D)" "WAITING(w!)" "READING(r)" "MAYBE(m)" "|" "DONE(d!)" "INACTIVE(i@)" "SOMEDAY(s)")))
 
 (use-package ox-reveal)
 
@@ -25,13 +26,34 @@
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
 (use-package org-gcal)
-(add-hook 'org-agenda-mode-hook (lambda() (org-gcal-fetch)
-                                  (org-gcal-sync)))
-(add-hook 'org-capture-after-finalize-hook (lambda () (org-gcal-fetch)
-                                             (org-gcal-sync)))
+(add-hook 'org-agenda-mode-hook (lambda() (org-gcal-sync)))
+(add-hook 'org-capture-after-finalize-hook (lambda () (org-gcal-sync)))
+
+(use-package pdf-tools
+  :init
+  (pdf-tools-install))
+
+(use-package org-ref)
+(setq org-ref-completion-library 'org-ref-ivy-cite-completion)
+(setq org-latex-pdf-process
+      '("pdflatex -interaction nonstopmode -output-directory %o %f"
+        "bibtex %b"
+        "pdflatex -interaction nonstopmode -output-directory %o %f"
+        "pdflatex -interaction nonstopmode -output-directory %o %f"))
+(use-package interleave)
+(use-package org-noter)
+
+(use-package org-kanban
+  :bind
+  (("M-F" . org-kanban/next)
+   ("M-B" . org-kanban/prev)))
 
 (global-set-key (kbd "C-c c") 'org-capture)
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c r") 'org-refile)
+
+(use-package flycheck-vale
+  :init
+  (flycheck-vale-setup))
 
 (provide 'setup-org-mode)
