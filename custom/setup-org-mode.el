@@ -11,10 +11,31 @@
 
 
 (global-set-key (kbd "C-c l") 'org-store-link)
+
+(use-package 'jupyter)
+(add-hook 'org-mode-hook
+          (lambda()
+            (local-set-key (kbd  "C-c C-k") 'jupyter-org-kill-block-and-results)))
+
+;; Setup org-babel
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((python . t)
    (jupyter . t)))
+
+;;; execute block evaluation without confirmation
+(setq org-confirm-babel-evaluate nil)
+
+;;; display/update images in the buffer after evaluation
+(add-hook 'org-babel-after-execute-hook 'org-display-inline-images 'append)
+
+(require 'org-tempo)
+(add-to-list 'org-structure-template-alist '("jj" . "src jupyter-python"))
+(add-to-list 'org-structure-template-alist '("py" . "src python"))
+(add-to-list 'org-structure-template-alist '("sh" . "src shell"))
+(add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
+
+
 
 (setq org-todo-keywords
       '((sequence "TODO(t)" "NEXT(n)" "DEFER(D)" "WAITING(w!)" "READING(r)" "MAYBE(m)" "|" "DONE(d!)" "INACTIVE(i@)" "SOMEDAY(s)")))
