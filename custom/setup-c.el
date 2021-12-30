@@ -38,8 +38,7 @@
 
 (use-package clang-format
   :init
-  (global-set-key (kbd "C-c i") 'clang-format-region)
-  (global-set-key (kbd "<caps> i") 'clang-format-buffer))
+  (define-key c-mode-base-map (kbd "C-c i") 'clang-format-buffer-with-project-style))
 
 (setq clang-format-style-option "google")
 
@@ -58,7 +57,6 @@
       (clang-format-buffer-with-style "file")
     (clang-format-buffer)))
 
-(global-set-key (kbd "C-c i") 'clang-format-buffer-with-project-style)
 
 (defun clang-format-buffer-with-project-style-on-save ()
   "Add auto-save hook for clang-format-buffer-with-project-style"

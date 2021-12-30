@@ -268,9 +268,13 @@ Position the cursor at it's beginning, according to the current mode."
 
 (use-package avy
   :bind
-  (("M-c" . avy-goto-char-2)
+  (("M-c" . avy-goto-char-timer)
    ("M-l" . avy-goto-line)))
 
 (put 'narrow-to-region 'disabled nil)
+
+(use-package fira-code-mode
+  :init
+  (add-hook 'prog-mode-hook 'fira-code-mode))
 
 (provide 'setup-editing)

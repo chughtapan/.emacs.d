@@ -4,6 +4,8 @@
 ;;   :ensure t)
 
 (use-package company-lsp
+  :defer t
+  :ensure lsp-mode
   :commands company-lsp
   :config
   (add-to-list 'company-backends #'company-lsp))
@@ -25,5 +27,11 @@
 ;;                          (lsp)))
 ;;   :init
 ;;   (setq lsp-python-ms-executable (executable-find "python-language-server")))
+
+(use-package lsp-pyright
+  :ensure t
+  :hook (python-mode . (lambda ()
+                         (unless (file-remote-p default-directory)
+                           (lsp)))))  ; or lsp-deferred
 
 (provide 'setup-lsp)

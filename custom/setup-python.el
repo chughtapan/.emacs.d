@@ -1,9 +1,9 @@
 (use-package anaconda-mode)
-(use-package company-anaconda
-  :init
-  (add-to-list 'company-backends 'company-anaconda))
+;; (use-package company-anaconda
+;;   :init
+;;   (add-to-list 'company-backends 'company-anaconda))
 
-(add-hook 'python-mode-hook 'anaconda-mode)
+;; (add-hook 'python-mode-hook 'anaconda-mode)
 (add-hook 'python-mode-hook 'eldoc-mode)
 
 ;; (use-package conda)

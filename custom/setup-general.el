@@ -52,8 +52,8 @@
 ;;   (add-to-list 'company-backends #'company-tabnine))
 
 (use-package prescient
-  :init
-  (prescient-persist-mode 1))
+  :ensure t)
+(prescient-persist-mode 1)
 
 (use-package company-prescient
   :init
@@ -70,6 +70,15 @@
           (if (file-remote-p default-directory)
               " Projectile[*remote*]"
             (format " Projectile[%s]" (projectile-project-name))))))
+
+(add-hook 'find-file-hook
+          (lambda ()
+            (when (file-remote-p default-directory)
+              (setq-local projectile-mode-line "Projectile"))))
+
+(defadvice projectile-project-root (around ignore-remote first activate)
+  (unless (file-remote-p default-directory) ad-do-it))
+
 
 ;; Package zygospore
 (use-package zygospore
